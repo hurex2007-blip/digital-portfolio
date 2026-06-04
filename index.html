@@ -106,8 +106,54 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            gap: 20px; /* Tạo khoảng cách an toàn giữa menu và icon */
+        }
+		nav ul {
+            display: flex;
+            list-style: none;
+            margin-left: auto; /* Thần chú đẩy cụm menu về giữa/phải hợp lý */
         }
 
+        /* Style cho biểu tượng rắn */
+        .header-icon-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        
+        }
+
+        /* --- Style chuẩn hóa cho biểu tượng rắn --- */
+        .header-icon-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            margin-left: 20px; /* Tạo khoảng cách với chữ Tổng Kết */
+        }
+
+        /* --- Style không dùng bộ lọc màu (Giữ màu Đen/Trắng gốc của ảnh) --- */
+        .header-icon-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .header-icon {
+            width: 35px;          
+            height: 35px;         
+            border-radius: 50%;   
+            background-color: #faa0cd; /* Nền tròn trắng tinh */
+            padding: 0px;         
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            /* XÓA BỎ HOÀN TOÀN DÒNG FILTER Ở ĐÂY */
+        }
+
+        .header-icon:hover {
+            transform: scale(1) rotate(108000deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+	    transition: transform 30s ease-in-out, box-shadow 0.3s ease, filter 0.3s ease;
+        }
         nav .logo {
             color: #fff;
             font-size: 1.4rem;
@@ -284,20 +330,17 @@
         }
 
         /* Responsive mượt mà cho di động */
+        /* Cập nhật lại responsive cho mượt mà */
         @media (max-width: 768px) {
             nav .nav-container {
                 flex-direction: column;
                 gap: 10px;
             }
+            nav ul {
+                margin-left: 0; /* Trả về mặc định trên di động */
+            }
             nav ul li {
                 margin: 0 10px;
-            }
-            .intro-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .intro-text ul {
-                text-align: left;
             }
         }
     </style>
@@ -321,7 +364,7 @@
                 <li><a href="#tong-ket">Tổng Kết</a></li>
             </ul>
 			<a href="https://i.pinimg.com/webp/1200x/1b/f5/c1/1bf5c1110c947bd796dd3a1b2284d461.webp" target="_blank" class="header-icon-link">
-                <img src="ea7c1baee08c535187a7b40b887b5dec.jpg" alt="Snake Icon" class="header-icon">
+                <img src="C:\Users\Admin\Documents\portfolio\images\bd1f206f133565def310a1c8ff5552de.webp" alt="Snake Icon" class="header-icon">
             </a>
         </div>
     </nav>
@@ -442,3 +485,4 @@
 
 </body>
 </html>
+	
