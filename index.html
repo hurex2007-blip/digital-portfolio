@@ -30,10 +30,7 @@
         }
 
         /* ========================================================
-           ✨ HIỆU ỨNG KHỐI 3D SIÊU NHỎ, NGẪU NHIÊN, KHÔNG BAY CÙNG LÚC
-           ======================================================== */
-        /* ========================================================
-           🌸 HIỆU ỨNG NỀN: CÁNH HOA ANH ĐÀO RƠI NGẪU NHIÊN
+           🌸 HIỆU ỨNG NỀN: CÁNH HOA ANH ĐÀO BAY NGANG TỪ TRÁI SANG PHẢI
            ======================================================== */
         .stream-3d-shapes {
             position: fixed;
@@ -46,55 +43,53 @@
             overflow: hidden;
         }
 
-        /* Tạo hình cánh hoa anh đào bằng border-radius */
+        /* Định dạng cánh hoa anh đào */
         .shape {
             position: absolute;
-            left: -30px;
-            width: 8px; 
-            height: 8px; 
-            opacity: 0.5; /* Độ mờ nhẹ nhàng giống tuyết */
-            background: linear-gradient(135deg, #ffb3c1, #ff758f); /* Màu hồng hoa anh đào */
-            /* Bí thuật bo góc tạo hình cánh hoa ngửa */
-            border-radius: 15px 0px 15px 12px; 
-            transform-origin: left top;
-            animation: rotateCherry 4s infinite ease-in-out, moveCherry 12s infinite linear;
+            left: -30px; /* Xuất phát từ rìa ngoài bên trái */
+            width: 10px; 
+            height: 10px; 
+            opacity: 0.6;
+            background: linear-gradient(135deg, #ffb3c1, #ff758f); /* Sắc hồng Sakura */
+            border-radius: 12px 0px 12px 9px; /* Tạo dáng cánh hoa khuyết */
+            transform-origin: center;
+            /* Kết hợp xoay 3D lướt sóng và chuyển động bay ngang */
+            animation: rotateCherry 3s infinite linear, moveCherryHorizontal 15s infinite linear;
         }
 
-        /* Animation xoay tự nhiên và lảo đảo giống lá/cánh hoa rơi */
+        /* Animation xoay 3D giúp cánh hoa lật trong không gian khi bay */
         @keyframes rotateCherry {
-             0% { transform: rotate(0deg) rotateY(0deg); }
-            50% { transform: rotate(180deg) rotateY(180deg); opacity: 0.9; }
-            100% { transform: rotate(360deg) rotateY(0deg); }
+            0% { transform: rotate3d(1, 1, 1, 0deg); }
+            100% { transform: rotate3d(1, 1, 1, 3600deg); }
         }
 
-        /* Animation di chuyển từ trên xuống dưới và hơi chéo sang phải */
-        @keyframes moveCherry {
+        /* Animation di chuyển ngang (Giữ nguyên logic gốc của bạn) */
+        @keyframes moveCherryHorizontal {
             0% { left: -30px; }
             100% { left: calc(100% + 30px); }
         }
 
-        /* Rải đều các cánh hoa ở các vị trí ngang (left), tốc độ và độ trễ khác nhau */
-        .shape:nth-child(1) { left: 5%; animation-duration: 9s; animation-delay: -2s; width: 14px; height: 14px; }
-        .shape:nth-child(2) { left: 12%; animation-duration: 14s; animation-delay: -5s; width: 10px; height: 10px; opacity: 0.5; }
-        .shape:nth-child(3) { left: 20%; animation-duration: 11s; animation-delay: -1s; }
-        .shape:nth-child(4) { left: 27%; animation-duration: 16s; animation-delay: -8s; width: 15px; height: 15px; }
-        .shape:nth-child(5) { left: 35%; animation-duration: 13s; animation-delay: -3s; }
-        .shape:nth-child(6) { left: 42%; animation-duration: 17s; animation-delay: -11s; width: 9px; height: 9px; }
-        .shape:nth-child(7) { left: 50%; animation-duration: 12s; animation-delay: -4s; }
-        .shape:nth-child(8) { left: 58%; animation-duration: 10s; animation-delay: -7s; width: 13px; height: 13px; }
-        .shape:nth-child(9) { left: 65%; animation-duration: 15s; animation-delay: -2s; }
-        .shape:nth-child(10) { left: 72%; animation-duration: 11s; animation-delay: -9s; width: 11px; height: 11px; }
-        .shape:nth-child(11) { left: 80%; animation-duration: 13s; animation-delay: -5s; }
-        .shape:nth-child(12) { left: 88%; animation-duration: 16s; animation-delay: -12s; width: 14px; height: 14px; }
-        .shape:nth-child(13) { left: 95%; animation-duration: 12s; animation-delay: -1s; }
-        .shape:nth-child(14) { left: 15%; animation-duration: 18s; animation-delay: -6s; }
-        .shape:nth-child(15) { left: 30%; animation-duration: 10s; animation-delay: -3s; width: 12px; height: 12px; }
-        .shape:nth-child(16) { left: 45%; animation-duration: 14s; animation-delay: -10s; }
-        .shape:nth-child(17) { left: 60%; animation-duration: 12s; animation-delay: -4s; width: 15px; height: 15px; }
-        .shape:nth-child(18) { left: 75%; animation-duration: 15s; animation-delay: -7s; }
-        .shape:nth-child(19) { left: 85%; animation-duration: 11s; animation-delay: -3s; width: 10px; height: 10px; }
-        .shape:nth-child(20) { left: 92%; animation-duration: 13s; animation-delay: -8s; }
-
+        /* Cấu hình vị trí cao/thấp (top) và độ trễ âm (-) để hoa rải đều màn hình ngay khi mở trang */
+        .shape:nth-child(1) { top: 3%; animation-duration: 11s; animation-delay: -2s; width: 13px; height: 13px; }
+        .shape:nth-child(2) { top: 7%; animation-duration: 16s; animation-delay: -5s; opacity: 0.4; }
+        .shape:nth-child(3) { top: 12%; animation-duration: 13s; animation-delay: -1s; }
+        .shape:nth-child(4) { top: 16%; animation-duration: 18s; animation-delay: -8s; width: 14px; height: 14px; }
+        .shape:nth-child(5) { top: 21%; animation-duration: 15s; animation-delay: -3s; }
+        .shape:nth-child(6) { top: 26%; animation-duration: 19s; animation-delay: -11s; }
+        .shape:nth-child(7) { top: 31%; animation-duration: 14s; animation-delay: -4s; width: 12px; height: 12px; }
+        .shape:nth-child(8) { top: 36%; animation-duration: 12s; animation-delay: -7s; }
+        .shape:nth-child(9) { top: 41%; animation-duration: 17s; animation-delay: -2s; }
+        .shape:nth-child(10) { top: 46%; animation-duration: 13s; animation-delay: -9s; opacity: 0.5; }
+        .shape:nth-child(11) { top: 51%; animation-duration: 15s; animation-delay: -5s; }
+        .shape:nth-child(12) { top: 56%; animation-duration: 18s; animation-delay: -12s; width: 13px; height: 13px; }
+        .shape:nth-child(13) { top: 61%; animation-duration: 14s; animation-delay: -1s; }
+        .shape:nth-child(14) { top: 66%; animation-duration: 19s; animation-delay: -6s; }
+        .shape:nth-child(15) { top: 71%; animation-duration: 12s; animation-delay: -3s; width: 11px; height: 11px; }
+        .shape:nth-child(16) { top: 76%; animation-duration: 16s; animation-delay: -10s; }
+        .shape:nth-child(17) { top: 81%; animation-duration: 14s; animation-delay: -4s; }
+        .shape:nth-child(18) { top: 86%; animation-duration: 17s; animation-delay: -7s; width: 14px; height: 14px; }
+        .shape:nth-child(19) { top: 91%; animation-duration: 13s; animation-delay: -3s; }
+        .shape:nth-child(20) { top: 96%; animation-duration: 15s; animation-delay: -8s; opacity: 0.4; }
         /* --- Thanh Điều Hướng (Navigation) --- */
         nav {
             background-color: var(--primary-color);
