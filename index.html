@@ -62,8 +62,9 @@
 
         /* Animation xoay tự nhiên và lảo đảo giống lá/cánh hoa rơi */
         @keyframes rotateCherry {
-             0% { transform: rotate3d(1, 1, 1, 0deg); }
-            100% { transform: rotate3d(1, 1, 1, 3600deg); }
+             0% { transform: rotate(0deg) rotateY(0deg); }
+            50% { transform: rotate(180deg) rotateY(180deg); opacity: 0.9; }
+            100% { transform: rotate(360deg) rotateY(0deg); }
         }
 
         /* Animation di chuyển từ trên xuống dưới và hơi chéo sang phải */
