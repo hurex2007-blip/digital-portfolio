@@ -49,10 +49,10 @@
         /* Tạo hình cánh hoa anh đào bằng border-radius */
         .shape {
             position: absolute;
-            top: -20px; /* Xuất phát từ phía trên màn hình */
-            width: 12px; 
-            height: 12px; 
-            opacity: 0.7;
+            left: -30px;
+            width: 8px; 
+            height: 8px; 
+            opacity: 0.5; /* Độ mờ nhẹ nhàng giống tuyết */
             background: linear-gradient(135deg, #ffb3c1, #ff758f); /* Màu hồng hoa anh đào */
             /* Bí thuật bo góc tạo hình cánh hoa ngửa */
             border-radius: 15px 0px 15px 12px; 
@@ -62,21 +62,14 @@
 
         /* Animation xoay tự nhiên và lảo đảo giống lá/cánh hoa rơi */
         @keyframes rotateCherry {
-            0% { transform: rotate(0deg) rotateY(0deg); }
-            50% { transform: rotate(180deg) rotateY(180deg); opacity: 0.9; }
-            100% { transform: rotate(360deg) rotateY(0deg); }
+             0% { transform: rotate3d(1, 1, 1, 0deg); }
+            100% { transform: rotate3d(1, 1, 1, 3600deg); }
         }
 
         /* Animation di chuyển từ trên xuống dưới và hơi chéo sang phải */
         @keyframes moveCherry {
-            0% { 
-                top: -20px; 
-                transform: translateX(0); 
-            }
-            100% { 
-                top: 105%; 
-                transform: translateX(150px); /* Rơi chéo mượt mà */
-            }
+            0% { left: -30px; }
+            100% { left: calc(100% + 30px); }
         }
 
         /* Rải đều các cánh hoa ở các vị trí ngang (left), tốc độ và độ trễ khác nhau */
