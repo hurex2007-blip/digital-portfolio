@@ -7,32 +7,52 @@
     <style>
         /* --- Cấu hình màu sắc & Font chữ chủ đạo (Tone Hồng) --- */
         :root {
-            --primary-color: #d81b60; 
-            --secondary-color: #ff758f;
-            --light-bg: #fff0f3;
-            --text-color: #000000;
-            --card-bg: #ffffff;
+            --primary-color: #d81b60 !important; 
+            --secondary-color: #ff758f !important;
+            --light-bg: #fff0f3 !important; /* Nền hồng sáng */
+            --text-color: #000000 !important; /* Màu chữ tối */
+            --card-bg: #ffffff !important;   /* Nền ô dự án màu trắng */
             --border-radius: 8px;
-			color-scheme: light;
-        }
+			color-scheme: light only !important;
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			-webkit-text-size-adjust: 100%;
         }
 
         body {
-            background-color: var(--light-bg) !important;
-            color: var(--text-color) !important;
+            /* Dùng !important để không cho bất cứ thứ gì ghi đè màu nền và màu chữ */
+            background-color: #fff0f3 !important; 
+            color: #2b2d42 !important;
             line-height: 1.6;
             position: relative;
         }
 		@media (prefers-color-scheme: dark) {
-            body, section, .project-card, .media-box {
-                background-color: inherit;
-                color: inherit;
+            :root {
+                color-scheme: light only !important;
+            }
+            body {
+                background-color: #fff0f3 !important;
+                color: #2b2d42 !important;
+            }
+            section, .project-card {
+                background-color: #ffffff !important;
+                color: #2b2d42 !important;
+                border-color: #ffe5ec !important;
+            }
+            h2, h3, h4 {
+                color: #d81b60 !important;
+            }
+            p, li, strong {
+                color: #2b2d42 !important;
+            }
+            .media-box {
+                background-color: #fff5f7 !important;
+                color: #d81b60 !important;
+                border-color: #ff758f !important;
             }
         }
 
