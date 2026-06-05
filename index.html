@@ -13,6 +13,7 @@
             --text-color: #000000;
             --card-bg: #ffffff;
             --border-radius: 8px;
+			color-scheme: light;
         }
 
         * {
@@ -23,10 +24,16 @@
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--text-color);
+            background-color: var(--light-bg) !important;
+            color: var(--text-color) !important;
             line-height: 1.6;
             position: relative;
+        }
+		@media (prefers-color-scheme: dark) {
+            body, section, .project-card, .media-box {
+                background-color: inherit;
+                color: inherit;
+            }
         }
 
         /* ========================================================
